@@ -20,6 +20,7 @@
 	<property>
 		<name>dfs.replication</name>
 		<value>2</value>
+	</property>
 	<property>
 		<name>dfs.namenode.name.dir</name>
 		<value>/home/hadoopngocphung/tools/hadoop/hadoop/hadoop_data/hdfs/namenode</value>
