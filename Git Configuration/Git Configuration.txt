@@ -1,0 +1,58 @@
+----------------------------------------------
+1. Cài đặt Git
+----------------------------------------------
+sudo apt install git
+----------------------------------------------
+
+----------------------------------------------
+2. Kiểm tra cài đặt Git
+----------------------------------------------
+git --version
+----------------------------------------------
+
+----------------------------------------------
+3. Thiết lập thông tin tài khoản GitHub
+----------------------------------------------
+git config --global user.name "Tên của bạn"
+git config --global user.email "email@example.com"
+----------------------------------------------
+
+----------------------------------------------
+4. Tạo SSH Key và Kết Nối với GitHub
+----------------------------------------------
+ssh-keygen -t ed25519 -C "email@example.com"
+--Nhập một passphrase: Điều này tăng cường bảo mật cho SSH key của bạn. 
+		Mỗi lần bạn sử dụng SSH key, bạn sẽ cần nhập passphrase này.
+--Để trống: 
+	Nếu bạn không muốn nhập passphrase mỗi lần sử dụng, bạn có thể để trống bằng cách nhấn Enter mà không nhập gì. 
+	Tuy nhiên, điều này sẽ khiến SSH key của bạn kém an toàn hơn.
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+--truy cập GitHub, vào phần Settings > SSH and GPG keys, chọn New SSH key, dán SSH key của bạn vào và lưu lại.
+----------------------------------------------
+
+----------------------------------------------
+5. Kiểm tra kết nối với GitHub
+----------------------------------------------
+ssh -T git@github.com
+----------------------------------------------
+
+----------------------------------------------
+7. Cài đặt git cli
+----------------------------------------------
+sudo apt install gh
+--Đăng nhập:
+gh auth login
+7.1. --> Chọn GitHub.com và nhấn Enter.
+7.2. --> Login with a web browser: GitHub CLI sẽ cung cấp một đường link mà bạn cần mở trong trình duyệt. 
+		Sau khi đăng nhập vào GitHub qua trình duyệt, bạn sẽ được yêu cầu xác nhận mã xác thực 
+		và sau đó quay lại terminal để tiếp tục sử dụng GitHub CLI. 
+		Đây là phương pháp đơn giản và được khuyến nghị.
+
+	--> Paste an authentication token: Ban có thể chọn phương án này và dán token của bạn vào. 
+		Token này bạn phải tự tạo trước từ trang GitHub 
+		trong phần cài đặt tài khoản (Settings > Developer Settings > Personal Access Tokens).
+git init
+git remote add origin https://github.com/username/repo-name.git
+git remote -v
